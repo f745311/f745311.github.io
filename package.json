@@ -1,0 +1,23 @@
+{
+    "name": "datalayer-demo",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.html",
+    "private": true,
+    "scripts": {
+        "start": "parcel index.html --open",
+        "prebuild": "shx rm -rf dist/*",
+        "build": "parcel build *.html --public-url ./",
+        "build-dev": "parcel build index.html --no-minify --public-url ./",
+        "push-gh-pages": "push-dir --dir=dist --branch=gh-pages --cleanup --verbose"
+    },
+    "author": "Claire",
+    "license": "ISC",
+    "devDependencies": {
+        "shx": "^0.3.3"
+    },
+    "dependencies": {
+        "parcel-bundler": "^1.12.5",
+        "push-dir": "^0.4.1"
+    }
+}

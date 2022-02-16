@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Google Tag Manager -->
+    <script>
+        // parse parameters
+        const parsedUrl = new URL(window.location.href);
+        const boothId = parsedUrl.searchParams.get("id");
+
+        // dataLayer initialization
+        window.dataLayer = window.dataLayer || [];
+        dataLayer.push({
+            'pageCategory': 'booth',
+            'booth': {
+                'name': 'booth' + boothId,
+                'id': boothId
+            }
+        });
+        console.log('pushed');
+    </script>
+    <script>
+        (function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-M5PSKLH');
+    </script>
+    <!-- End Google Tag Manager -->
+</head>
+
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PF9ZTHJ" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <script>
+        function onPageClicked(eventName, hashTag) {
+            dataLayer.push({
+                'event': eventName
+            });
+
+            history.pushState(state, title, '/click/me.html');
+        }
+    </script>
+
+    <h1>Hello</h1>
+    <div>
+        <a href="#" name="button1" onclick="dataLayer.push({'event': 'button1-click'});">Button 1</a>
+        <a href="#" name="button2" onclick="dataLayer.push({'event': 'button2-click'});">Button 2</a>
+        <a href="#" name="button3" onclick="dataLayer.push({'event': 'button3-click'});">Button 3</a>
+        <a href="#" name="button4" onclick="dataLayer.push({'event': 'button4-click'});">Button 4</a>
+        <a href="#" name="button5" onclick="dataLayer.push({'event': 'button5-click'});">Button 5</a>
+    </div>
+    <div>
+        <a href="#about" name="btnAbout" onclick="dataLayer.push({'event': 'button-about-click'});">About</a>
+        <a href="#chat" name="btnChat" onclick="dataLayer.push({'event': 'button-chat-click'});">Chat</a>
+        <a href="#info" name="btnInfo" onclick="dataLayer.push({'event': 'button-info-click'});">Info</a>
+    </div>
+</body>
+
+</html>
